@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Touch : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 {
-    private bool touching;
+    public bool touching;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -15,5 +15,12 @@ public class Touch : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         touching = false;
+        GameControl.instance.IncrementStepNumber();
+        GameControl.instance.MoveAnim();
+    }
+
+    private void Update()
+    {
+        
     }
 }
