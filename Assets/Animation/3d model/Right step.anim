@@ -4619,66 +4619,6 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Spine_01/Spine_02/Spine_03/Spine_04/clavR/shoulderR_FK/elbowR_FK/handR_FK
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Spine_01/Spine_02/Spine_03/Spine_04/clavR/shoulderR_FK/elbowR_FK/handR_FK
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Spine_01/Spine_02/Spine_03/Spine_04/clavR/shoulderR_FK/elbowR_FK/handR_FK
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: footL_CTRL_GRP/footL_CTRL
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: footL_CTRL_GRP/footL_CTRL
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: footL_CTRL_GRP/footL_CTRL
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
     path: Spine_01/Spine_02/Spine_03/Spine_04/clavR/shoulderR/elbowR/handR
     classID: 4
     script: {fileID: 0}
@@ -4709,7 +4649,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Spine_01/thighR/kneeR/footR
+    path: footL_CTRL_GRP
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4719,7 +4659,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Spine_01/thighR/kneeR/footR
+    path: footL_CTRL_GRP
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4729,7 +4669,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Spine_01/thighR/kneeR/footR
+    path: footL_CTRL_GRP
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4739,7 +4679,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: 
+    path: Spine_01/Spine_02/Spine_03/Spine_04/clavL/shoulderL/elbowL/handL
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4749,7 +4689,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: 
+    path: Spine_01/Spine_02/Spine_03/Spine_04/clavL/shoulderL/elbowL/handL
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4759,7 +4699,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: 
+    path: Spine_01/Spine_02/Spine_03/Spine_04/clavL/shoulderL/elbowL/handL
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4799,7 +4739,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: footL_CTRL_GRP
+    path: Spine_01/Spine_02/Spine_03
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4809,7 +4749,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: footL_CTRL_GRP
+    path: Spine_01/Spine_02/Spine_03
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4819,7 +4759,97 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: footL_CTRL_GRP
+    path: Spine_01/Spine_02/Spine_03
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Spine_01/Spine_02/Spine_03/Spine_04/clavR/shoulderR_FK/elbowR_FK/handR_FK
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Spine_01/Spine_02/Spine_03/Spine_04/clavR/shoulderR_FK/elbowR_FK/handR_FK
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Spine_01/Spine_02/Spine_03/Spine_04/clavR/shoulderR_FK/elbowR_FK/handR_FK
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: 
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: 
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: 
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: footL_CTRL_GRP/footL_CTRL
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: footL_CTRL_GRP/footL_CTRL
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: footL_CTRL_GRP/footL_CTRL
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4889,7 +4919,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Spine_01/Spine_02/Spine_03
+    path: Spine_01/Spine_02/Spine_03/Spine_04
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4899,7 +4929,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Spine_01/Spine_02/Spine_03
+    path: Spine_01/Spine_02/Spine_03/Spine_04
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4909,7 +4939,27 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Spine_01/Spine_02/Spine_03
+    path: Spine_01/Spine_02/Spine_03/Spine_04
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Spine_01/thighR/kneeR/footR
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Spine_01/thighR/kneeR/footR
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4919,57 +4969,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Spine_01/Spine_02/Spine_03/Spine_04/clavL/shoulderL/elbowL/handL
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Spine_01/Spine_02/Spine_03/Spine_04/clavL/shoulderL/elbowL/handL
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Spine_01/Spine_02/Spine_03/Spine_04/clavL/shoulderL/elbowL/handL
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Spine_01/Spine_02/Spine_03/Spine_04
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Spine_01/Spine_02/Spine_03/Spine_04
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Spine_01/Spine_02/Spine_03/Spine_04
+    path: Spine_01/thighR/kneeR/footR
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 1
