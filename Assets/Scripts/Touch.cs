@@ -15,6 +15,8 @@ public class Touch : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         touching = false;
+        GameControl.instance.IncrementStepNumber();
+        GameControl.instance.MoveAnim();
     }
 
     private void Update()
