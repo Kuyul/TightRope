@@ -23,7 +23,6 @@ public class PlayerControl : MonoBehaviour
     {
         ConsecutivePerfects = 0;
         AddStepTrigger();
-        AnimTriggers.Add("shake");
         StartCoroutine(DoAnimations());
     }
 
@@ -56,21 +55,21 @@ public class PlayerControl : MonoBehaviour
     // Iterates through the animation triggers and plays each one by one
     IEnumerator DoAnimations()
     {
-        AnimationIsPlaying = true;
+        //AnimationIsPlaying = true;
         Debug.Log("Initiating Animation - Animation Count: " + AnimTriggers.Count);
-        for(int i = 0; i < AnimTriggers.Count; i++)
+        while(AnimTriggers.Count > 0)
         {
-            Anim.SetTrigger(AnimTriggers[i]);
-            Debug.Log(AnimTriggers[i] + ":" + Anim.GetCurrentAnimatorStateInfo(0).length);
+            Anim.SetTrigger(AnimTriggers[0]);
+            Debug.Log(AnimTriggers[0] + ":" + Anim.GetCurrentAnimatorStateInfo(0).length);
+            AnimTriggers.RemoveAt(0);
             //If its not the last animation in the sequence, wait out the length of the current animation and call the next one
             yield return new WaitForSeconds(Anim.GetCurrentAnimatorStateInfo(0).length);
-
             //If on the last animation, flag that animations have ended (used by gameController)
-            if (i == AnimTriggers.Count - 1)
+            /*
+            if (AnimTriggers.Count == 0)
             {
                 AnimationIsPlaying = false;
-                AnimTriggers.Clear();
-            }
+            }*/
         }
     }
 
