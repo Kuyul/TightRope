@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
+    //Declare instance
     public static GameControl instance;
+
+    //Declare public variables
     public Touch TouchScript;
-    
+    public PlayerControl Player;
     public float gaugeTime;
     public Slider slider;
-    public Animator anim;
 
     private float timeTracker = 0;
     private bool stop;
@@ -28,57 +30,59 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        // if touching screen, increase slider value
-        if (TouchScript.touching == true)
+        //Check if animation is currently being played
+        if (!Player.IsAnimationPlaying())
         {
-            stop = false;
-            timeTracker = timeTracker + Time.deltaTime;
-            slider.value = timeTracker / gaugeTime;
+            // if touching screen, increase slider value
+            if (TouchScript.touching == true)
+            {
+                stop = false;
+                timeTracker = timeTracker + Time.deltaTime;
+                slider.value = timeTracker / gaugeTime;
+            }
+            /* Moved this section out of update because this section gets called at the start of the game when it should really be called only when touch is lifted
+            else
+            {
+                if (slider.value > 0.5 && slider.value < 0.8 && !stop)
+                {
+                    Perfect();
+                }
+                stop = true;
+                timeTracker = 0;
+            }*/
         }
-        // release touch to trigger perfect if slider is between x and y values
+    }
+
+    //This method is called from the Touch Script
+    //release touch to trigger perfect if slider is between x and y values
+    public void TouchLifted()
+    {
+        if (slider.value > 0.5 && slider.value < 0.8 && !stop)
+        {
+            Perfect();
+        }
         else
         {
-            if (slider.value > 0.5 && slider.value < 0.8 && !stop)
-            {
-                Perfect();
-            }
-            stop = true;
-            timeTracker = 0;
+            NotPerfect();
         }
-
-
+        stop = true;
+        timeTracker = 0;
     }
 
     // function called on perfect stop.
     public void Perfect()
     {
+        Player.Perfect();
         Debug.Log("perfect");
     }
 
-    public void IncrementStepNumber()
+    public void NotPerfect()
     {
-        // odd number is left trigger, even number is right trigger
-        stepNumber++;
+        Player.NotPerfect();
+        Debug.Log("not perfect");
     }
 
-    public void MoveAnim()
-    {
-        if (stepNumber % 2 == 0)
-        {
-            anim.SetTrigger("rightstep");
-        }
-        else
-        {
-            anim.SetTrigger("leftstep");
-        }
-    }
 }
