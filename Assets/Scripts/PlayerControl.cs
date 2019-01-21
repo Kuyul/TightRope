@@ -25,7 +25,6 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         var isMoving = IsMovingState();
-        Debug.Log(isMoving);
         if (isMoving)
         {
             rb.velocity = new Vector3(0, 0, speed);
@@ -41,6 +40,7 @@ public class PlayerControl : MonoBehaviour
     {
         ConsecutivePerfects = 0;
         AddStepTrigger();
+        AnimTriggers.Add("shake");
         StartCoroutine(DoAnimations());
     }
 
