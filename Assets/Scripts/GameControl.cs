@@ -34,26 +34,23 @@ public class GameControl : MonoBehaviour
     void Update()
     {
         //Check if animation is currently being played
-        if (!Player.IsAnimationPlaying())
+        // if touching screen, increase slider value
+        if (TouchScript.touching == true)
         {
-            // if touching screen, increase slider value
-            if (TouchScript.touching == true)
-            {
-                stop = false;
-                timeTracker = timeTracker + Time.deltaTime;
-                slider.value = timeTracker / gaugeTime;
-            }
-            /* Moved this section out of update because this section gets called at the start of the game when it should really be called only when touch is lifted
-            else
-            {
-                if (slider.value > 0.5 && slider.value < 0.8 && !stop)
-                {
-                    Perfect();
-                }
-                stop = true;
-                timeTracker = 0;
-            }*/
+            stop = false;
+            timeTracker = timeTracker + Time.deltaTime;
+            slider.value = timeTracker / gaugeTime;
         }
+        /* Moved this section out of update because this section gets called at the start of the game when it should really be called only when touch is lifted
+        else
+        {
+            if (slider.value > 0.5 && slider.value < 0.8 && !stop)
+            {
+                Perfect();
+            }
+            stop = true;
+            timeTracker = 0;
+        }*/
     }
 
     //This method is called from the Touch Script

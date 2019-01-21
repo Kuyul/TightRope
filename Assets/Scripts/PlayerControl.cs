@@ -6,16 +6,34 @@ public class PlayerControl : MonoBehaviour
 {
     //Declare public variables
     public Animator Anim;
+    public List<string> movingAnimStates;
+    public float speed = 5.0f;
 
     //Declare private variables
     private bool AnimationIsPlaying = false;
     private int StepNumber = 0;
     private int ConsecutivePerfects = 0;
     private List<string> AnimTriggers;
+    private Rigidbody rb;
 
     private void Start()
     {
         AnimTriggers = new List<string>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        var isMoving = IsMovingState();
+        Debug.Log(isMoving);
+        if (isMoving)
+        {
+            rb.velocity = new Vector3(0, 0, speed);
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 
     //Called when the player didn't hit perfect, but hits in the safe zone
@@ -44,11 +62,11 @@ public class PlayerControl : MonoBehaviour
         StepNumber++;
         if (StepNumber % 2 == 0)
         {
-            AnimTriggers.Add("rightstep");
+            AnimTriggers.Add("rightStep");
         }
         else
         {
-            AnimTriggers.Add("leftstep");
+            AnimTriggers.Add("leftStep");
         }
     }
 
@@ -77,5 +95,20 @@ public class PlayerControl : MonoBehaviour
     public bool IsAnimationPlaying()
     {
         return AnimationIsPlaying;
+    }
+
+    //Checks whether the current state is a moving state
+    public bool IsMovingState()
+    {
+        bool moving = false;
+        for(int i = 0; i < movingAnimStates.Count; i++)
+        {
+            var val = Anim.GetCurrentAnimatorStateInfo(0).IsName(movingAnimStates[i]);
+            if (val)
+            {
+                moving = true;
+            }
+        }
+        return moving;
     }
 }
