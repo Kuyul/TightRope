@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Touch : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
+public class Touch : MonoBehaviour,IPointerDownHandler
 {
     public PlayerControl player;
-    public bool touching;
+    public bool touch;
 
     //Initialise Dragging
     public void OnPointerDown(PointerEventData eventData)
     {
-        touching = true;  
+        touch = true;
+        GameControl.instance.Touched();
     }
 
-    //End Dragging
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        GameControl.instance.TouchLifted();
-        touching = false;
-    }
 }

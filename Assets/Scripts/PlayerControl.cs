@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     //Declare public variables
+    public Touch TouchScript;
     public Animator Anim;
     public List<string> movingAnimStates;
     public float speed = 5.0f;
@@ -73,7 +74,6 @@ public class PlayerControl : MonoBehaviour
     // Iterates through the animation triggers and plays each one by one
     IEnumerator DoAnimations()
     {
-        //AnimationIsPlaying = true;
         Debug.Log("Initiating Animation - Animation Count: " + AnimTriggers.Count);
         while(AnimTriggers.Count > 0)
         {
@@ -82,19 +82,8 @@ public class PlayerControl : MonoBehaviour
             AnimTriggers.RemoveAt(0);
             //If its not the last animation in the sequence, wait out the length of the current animation and call the next one
             yield return new WaitForSeconds(Anim.GetCurrentAnimatorStateInfo(0).length);
-            //If on the last animation, flag that animations have ended (used by gameController)
-            /*
-            if (AnimTriggers.Count == 0)
-            {
-                AnimationIsPlaying = false;
-            }*/
-        }
-    }
-
-    //A simple getter (is this still a good coding methodology? why not just use a public variable instead? feels outdated.. its been 7 years already, but nevertheless it works)
-    public bool IsAnimationPlaying()
-    {
-        return AnimationIsPlaying;
+        }       
+        ResumeSlider();
     }
 
     //Checks whether the current state is a moving state
@@ -110,5 +99,10 @@ public class PlayerControl : MonoBehaviour
             }
         }
         return moving;
+    }
+
+    public void ResumeSlider()
+    {
+        TouchScript.touch = false;
     }
 }

@@ -11,11 +11,11 @@ public class GameControl : MonoBehaviour
     //Declare public variables
     public Touch TouchScript;
     public PlayerControl Player;
-    public float gaugeTime;
     public Slider slider;
 
     private float timeTracker = 0;
-    private bool stop;
+    private float timeLimit = 0;
+ 
     private bool sliderFill = true;
 
     private void Awake()
@@ -35,7 +35,8 @@ public class GameControl : MonoBehaviour
     {
         //Check if animation is currently being played
         // if touching screen, increase slider value
-        if (TouchScript.touching == true)
+
+        if (!TouchScript.touch)
         {
             float delta;
             if (sliderFill)
@@ -46,25 +47,28 @@ public class GameControl : MonoBehaviour
             {
                 delta = -Time.deltaTime;
             }
-            timeTracker = timeTracker + delta;
-            stop = false;
-            slider.value = timeTracker / gaugeTime;
 
-            if(slider.value >= 1)
+            timeTracker = timeTracker + delta;
+            timeLimit = Mathf.Pow(timeTracker, 3f);
+            slider.value = timeLimit;
+
+            if (slider.value >= slider.maxValue)
             {
                 sliderFill = false;
-            }else if(slider.value <= 0)
+            }
+            else if (slider.value <= slider.minValue)
             {
                 sliderFill = true;
             }
         }
+        
     }
 
     //This method is called from the Touch Script
     //release touch to trigger perfect if slider is between x and y values
-    public void TouchLifted()
+    public void Touched()
     {
-        if (slider.value > 0.5 && slider.value < 0.8 && !stop)
+        if (slider.value > 0.5 && slider.value < 0.8)
         {
             Perfect();
         }
@@ -72,7 +76,6 @@ public class GameControl : MonoBehaviour
         {
             NotPerfect();
         }
-        stop = true;
         sliderFill = true;
         timeTracker = 0;
     }
