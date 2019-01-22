@@ -36,7 +36,7 @@ public class GameControl : MonoBehaviour
         //Check if animation is currently being played
         // if touching screen, increase slider value
 
-        if (!TouchScript.touch)
+        if (TouchScript.touch)
         {
             float delta;
             if (sliderFill)

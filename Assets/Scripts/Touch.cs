@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Touch : MonoBehaviour,IPointerDownHandler
+public class Touch : MonoBehaviour,IPointerDownHandler, IPointerUpHandler
 {
     public PlayerControl player;
     public bool touch;
@@ -12,7 +12,12 @@ public class Touch : MonoBehaviour,IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         touch = true;
-        GameControl.instance.Touched();
+        
     }
 
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        touch = false;
+        GameControl.instance.Touched();
+    }
 }
