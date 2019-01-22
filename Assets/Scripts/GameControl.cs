@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameControl : MonoBehaviour
     public Touch TouchScript;
     public PlayerControl Player;
     public Slider slider;
+    public float exponentialPower = 4.5f;
 
     private float timeTracker = 0;
     private float timeLimit = 0;
@@ -49,16 +51,19 @@ public class GameControl : MonoBehaviour
             }
 
             timeTracker = timeTracker + delta;
-            timeLimit = Mathf.Pow(timeTracker, 3f);
+            timeLimit = Mathf.Pow(timeTracker, 6f); //Exponential
             slider.value = timeLimit;
 
             if (slider.value >= slider.maxValue)
             {
-                sliderFill = false;
+                TouchScript.touch = false;
+                Player.OnDeath();
+                StartCoroutine(GameOver());
+                //sliderFill = false;
             }
             else if (slider.value <= slider.minValue)
             {
-                sliderFill = true;
+                //sliderFill = true;
             }
         }
         
@@ -83,14 +88,19 @@ public class GameControl : MonoBehaviour
     // function called on perfect stop.
     public void Perfect()
     {
-        Player.Perfect();
+        //Player.Perfect();
         Debug.Log("perfect");
     }
 
     public void NotPerfect()
     {
-        Player.NotPerfect();
+        //Player.NotPerfect();
         Debug.Log("not perfect");
     }
 
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene(0);
+    }
 }

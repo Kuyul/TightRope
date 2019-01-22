@@ -66,6 +66,19 @@ public class PlayerControl : MonoBehaviour
         StartCoroutine(DoAnimations());
     }
 
+    public void TakeStep()
+    {
+        StepNumber++;
+        if (StepNumber % 2 == 0)
+        {
+            Anim.SetTrigger("rightStep");
+        }
+        else
+        {
+            Anim.SetTrigger("leftStep");
+        }
+    }
+
     public void AddStepTrigger()
     {
         StepNumber++;
@@ -112,6 +125,11 @@ public class PlayerControl : MonoBehaviour
     public void ResumeSlider()
     {
         TouchScript.touch = false;
+    }
+
+    public void OnDeath()
+    {
+        Anim.SetTrigger("death");
     }
 
     //When player reaches a startpoint, turn direction to the next endpoint (next building)

@@ -12,7 +12,7 @@ public class Touch : MonoBehaviour,IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         touch = true;
-        
+        player.TakeStep();
     }
 
     public void OnPointerUp(PointerEventData eventData)
