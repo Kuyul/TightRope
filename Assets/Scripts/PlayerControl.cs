@@ -6,12 +6,15 @@ public class PlayerControl : MonoBehaviour
 {
     //Declare public variables
     public Touch TouchScript;
+    public LevelControl LevelController;
     public Animator Anim;
     public List<string> movingAnimStates;
     public float speed = 5.0f;
+    public float movePointsSpeed = 10.0f;
 
     //Declare private variables
-    private bool AnimationIsPlaying = false;
+    private bool MoveToNextPoint = false;
+    private Vector3 NextPoint;
     private int StepNumber = 0;
     private int ConsecutivePerfects = 0;
     private List<string> AnimTriggers;
@@ -28,11 +31,16 @@ public class PlayerControl : MonoBehaviour
         var isMoving = IsMovingState();
         if (isMoving)
         {
-            rb.velocity = new Vector3(0, 0, speed);
+            rb.velocity = transform.forward * speed;
         }
         else
         {
             rb.velocity = Vector3.zero;
+        }
+
+        if (MoveToNextPoint)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, NextPoint, movePointsSpeed * Time.deltaTime);
         }
     }
 
@@ -104,5 +112,42 @@ public class PlayerControl : MonoBehaviour
     public void ResumeSlider()
     {
         TouchScript.touch = false;
+    }
+
+    //When player reaches a startpoint, turn direction to the next endpoint (next building)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "StartPoint")
+        {
+            MoveToNextPoint = false;
+            var startPoints = LevelController.GetStartPoints();
+            var endPoints = LevelController.GetEndPoints();
+            var index = startPoints.IndexOf(other.gameObject.transform);
+            var nextPoint = endPoints[index];
+            //Calculate the difference between the two positions to get a directional vector
+            var vector = nextPoint.position - other.gameObject.transform.position;
+            transform.LookAt(nextPoint);
+        }
+
+        if (other.gameObject.tag == "EndPoint")
+        {
+            var startPoints = LevelController.GetStartPoints();
+            var endPoints = LevelController.GetEndPoints();
+            var index = endPoints.IndexOf(other.gameObject.transform);
+            //Last index
+            if(endPoints.Count == index + 1)
+            {
+                Debug.Log("Game Clear");
+            }
+            else
+            {
+                MoveToNextPoint = true;
+                var nextPoint = startPoints[index + 1];
+                //Calculate the difference between the two positions to get a directional vector
+                var vector = nextPoint.position - other.gameObject.transform.position;
+                transform.LookAt(nextPoint);
+                NextPoint = nextPoint.position;
+            }     
+        }
     }
 }

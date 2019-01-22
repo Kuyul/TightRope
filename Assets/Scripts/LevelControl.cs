@@ -20,7 +20,7 @@ public class LevelControl : MonoBehaviour
     private List<Transform> EndPoints = new List<Transform>();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         SpawnPositions.Add(new Vector3(-SpaceAround, 0, -SpaceAround)); //Bottom Left, i = 0
         SpawnPositions.Add(new Vector3(-SpaceAround, 0, SpaceAround)); //Top Left i = 1
@@ -110,6 +110,20 @@ public class LevelControl : MonoBehaviour
                 StartPoints.Add(BuildingProps[i].WestPos);
                 EndPoints.Add(BuildingProps[i + 1].EastPos);
             }
+            StartPoints[i].gameObject.tag = "StartPoint";
+            EndPoints[i].gameObject.tag = "EndPoint";
         }
+    }
+
+    //Startpoints getter
+    public List<Transform> GetStartPoints()
+    {
+        return StartPoints;
+    }
+
+    //Endpoints getter
+    public List<Transform> GetEndPoints()
+    {
+        return EndPoints;
     }
 }
